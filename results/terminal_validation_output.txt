@@ -1,0 +1,35 @@
+====================================================================================================================================================
+  PAGODA: JETSON BENCHMARK PREDICTION vs ACTUAL PHYSICAL HARDWARE
+  Hardware Platform: NVIDIA Jetson Orin Nano Developer Kit (8GB)
+  Evaluated Modes:   15W (0) | 25W (1) | MAXN_SUPER (2)
+====================================================================================================================================================
+Model         BS  AI     CR%    Predicted   Opt_SLA15   15W_mJ    25W_mJ    MAXN_mJ   Sel_mJ    E_Save%   Lat_Delta%  Physical Verdict
+----------------------------------------------------------------------------------------------------------------------------------------------------
+MobileNet-v3  1   4.36   37.5   15W         MAXN_SUPER  98.0      114.4     104.0     98.0      +5.8      +26.6       ENERGY_TRADEOFF
+MobileNet-v3  4   5.18   56.6   15W         MAXN_SUPER  349.2     417.5     390.0     349.2     +10.4     +24.5       ENERGY_TRADEOFF
+MobileNet-v3  8   5.35   56.6   15W         MAXN_SUPER  667.0     809.8     768.8     667.0     +13.2     +21.1       ENERGY_TRADEOFF
+MobileNet-v3  16  5.44   56.6   15W         MAXN_SUPER  1233.9    1475.5    1410.5    1233.9    +12.5     +21.8       ENERGY_TRADEOFF
+LSTM          1   7.24   0.0    15W         MAXN_SUPER  53.4      66.8      61.8      53.4      +13.7     +28.9       ENERGY_TRADEOFF
+LSTM          4   19.09  87.8   MAXN_SUPER  MAXN_SUPER  192.1     231.6     225.1     225.1     +0.0      +0.0        SLA_PRESERVED
+LSTM          8   31.65  93.5   MAXN_SUPER  MAXN_SUPER  356.4     427.0     408.3     408.3     +0.0      +0.0        SLA_PRESERVED
+LSTM          16  49.63  96.6   MAXN_SUPER  MAXN_SUPER  699.9     859.5     811.3     811.3     +0.0      +0.0        SLA_PRESERVED
+YOLOv8n       1   16.69  93.1   MAXN_SUPER  MAXN_SUPER  976.2     1204.1    1125.9    1125.9    +0.0      +0.0        SLA_PRESERVED
+YOLOv8n       4   16.99  93.1   MAXN_SUPER  MAXN_SUPER  1010.5    1221.7    1100.9    1100.9    +0.0      +0.0        SLA_PRESERVED
+YOLOv8n       8   17.04  93.1   MAXN_SUPER  MAXN_SUPER  1009.0    1199.3    1107.8    1107.8    +0.0      +0.0        SLA_PRESERVED
+YOLOv8n       16  17.07  93.1   MAXN_SUPER  15W         973.6     1228.3    1313.2    1313.2    +0.0      +0.0        SLA_PRESERVED
+BERT-Base     1   25.00  99.7   MAXN_SUPER  MAXN_SUPER  1778.9    2211.0    2094.2    2094.2    +0.0      +0.0        SLA_PRESERVED
+BERT-Base     4   35.32  99.7   MAXN_SUPER  MAXN_SUPER  6948.7    8471.4    7821.5    7821.5    +0.0      +0.0        SLA_PRESERVED
+BERT-Base     8   37.92  99.7   MAXN_SUPER  MAXN_SUPER  13955.0   17476.7   16011.0   16011.0   +0.0      +0.0        SLA_PRESERVED
+BERT-Base     16  39.38  99.7   MAXN_SUPER  MAXN_SUPER  28081.0   35928.8   33653.7   33653.7   +0.0      +0.0        SLA_PRESERVED
+ResNet-50     1   24.37  99.4   MAXN_SUPER  MAXN_SUPER  815.4     992.4     962.4     962.4     +0.0      +0.0        SLA_PRESERVED
+ResNet-50     4   31.54  99.4   MAXN_SUPER  MAXN_SUPER  3457.5    4296.1    3996.1    3996.1    +0.0      +0.0        SLA_PRESERVED
+ResNet-50     8   33.17  99.4   MAXN_SUPER  MAXN_SUPER  6832.8    8576.6    8023.4    8023.4    +0.0      +0.0        SLA_PRESERVED
+ResNet-50     16  34.05  99.4   MAXN_SUPER  MAXN_SUPER  11624.9   14431.9   13357.3   13357.3   +0.0      +0.0        SLA_PRESERVED
+----------------------------------------------------------------------------------------------------------------------------------------------------
+  Physical Hardware Evaluation Summary (20 Workloads):
+    - True Win-Win (Energy Saved & SLA Met <=15%):    0/20
+    - Throughput / SLA Preserved at MAXN:            15/20 (Compute-bound: 0% delay penalty)
+    - Energy-Optimized Trade-Offs at 15W:            5/20 (Energy saved at expense of latency)
+    - Strict Latency SLA (<=15%) Match Rate:         14/20 (70.0%)
+    - Hardware Discovery: 25W mode is Pareto-inefficient across 19/20 workloads (draws -2.9% to -11.0% MORE energy than MAXN).
+====================================================================================================================================================

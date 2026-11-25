@@ -1,0 +1,13 @@
+numpy
+pandas
+torch
+torchvision
+onnx
+onnxruntime
+transformers
+ultralytics
+matplotlib
+prettytable
+python-docx
+python-pptx
+docx2pdf
